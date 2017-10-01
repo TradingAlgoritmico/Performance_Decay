@@ -1,0 +1,12 @@
+Inputs: ELen(40);
+Vars: CurEquity(0), AveEquity(0);
+Vars: AlertCond(FALSE);
+CurEquity = I_openequity;
+Plot1(CurEquity, "Plot1" );
+
+AveEquity = Average(CurEquity,ELen);
+Plot2(AveEquity, "Plot2" );
+
+AlertCond =CurEquity < AveEquity;
+if Condition1 then
+	Alert( "Not Safe To Trade" );
